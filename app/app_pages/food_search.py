@@ -32,17 +32,16 @@ if "food_dashboard" not in st.session_state:
 # Import logos
 logos = Image.open(BASE_DIR / "logo" / "logos.png")
 
-# Temporary diagnostics
-st.write("BASE_DIR:", BASE_DIR)
-st.write("Logo path:", BASE_DIR / "logo" / "logos.png")
-st.write("Logo exists:", (BASE_DIR / "logo" / "logos.png").exists())
-st.write("Logo dimensions:", logos.size)
-
+##TEMPORARILY COMMENTING OUT TO TROUBLESHOOT LOGO
 # Specify location of logos (on top of disclaimer, right side)
-left, logo = st.columns([10, 3])
+#left, logo = st.columns([10, 3])
 
-with logo:
-    st.image(logos, width=350)
+#with logo:
+#    st.image(logos, width=350)
+
+## TEMPORARILY ADDING TO TROUBLESHOOT LOGO
+# Display logos
+st.image(logos, width=700)
 
 
 # Add project disclaimer at the top of the page
