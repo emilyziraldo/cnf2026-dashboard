@@ -6,8 +6,6 @@ import streamlit as st
 from pathlib import Path
 from PIL import Image
 from cnf_functions import *
-# new to address image rendering issue
-import base64
 
 
 
@@ -34,38 +32,11 @@ if "food_dashboard" not in st.session_state:
 # Import logos
 logos = Image.open(BASE_DIR / "logo" / "logos.png")
 
-##TEMPORARILY COMMENTING OUT TO TROUBLESHOOT LOGO
 # Specify location of logos (on top of disclaimer, right side)
-#left, logo = st.columns([10, 3])
-
-#with logo:
-#    st.image(logos, width=350)
-
-#TEMPORARILY ADDING TO TRY TO FIX LOGO RENDERING ISSUE
-# Load logos for top of food search page
-logo_path = BASE_DIR / "logo" / "logos.png"
-
-# Convert logo image to Base64
-with open(logo_path, "rb") as image_file:
-    logo_base64 = base64.b64encode(
-        image_file.read()
-    ).decode("utf-8")
-
-# Specify location of logos
 left, logo = st.columns([10, 3])
 
-with logo:
-    st.markdown(
-        f"""
-        <img
-            src="data:image/png;base64,{logo_base64}"
-            width="350"
-            style="display: block; margin-left: auto;"
-        >
-        """,
-        unsafe_allow_html=True
-    )
-
+#with logo:
+st.image(logos, width=350)
 
 # Add project disclaimer at the top of the page
 st.markdown(
