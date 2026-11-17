@@ -41,8 +41,10 @@ logos = Image.open(BASE_DIR / "logo" / "logos.png")
 
 ## TEMPORARILY ADDING TO TROUBLESHOOT LOGO
 # Display logos
-st.image(logos, width=700)
-
+st.image(
+    str(BASE_DIR / "logo" / "logos.png"),
+    width=700
+)
 
 # Add project disclaimer at the top of the page
 st.markdown(
