@@ -39,11 +39,13 @@ logos = Image.open(BASE_DIR / "logo" / "logos.png")
 #with logo:
 #    st.image(logos, width=350)
 
-## TEMPORARILY ADDING TO TROUBLESHOOT LOGO
-# Display logos
+## TEMPORARY IMAGE RENDERING TEST
+test_image = Image.new("RGB", (600, 150), color="red")
+
 st.image(
-    str(BASE_DIR / "logo" / "logos.png"),
-    width=700
+    test_image,
+    caption="Image rendering test",
+    width=600
 )
 
 # Add project disclaimer at the top of the page
