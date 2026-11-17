@@ -32,6 +32,12 @@ if "food_dashboard" not in st.session_state:
 # Import logos
 logos = Image.open(BASE_DIR / "logo" / "logos.png")
 
+# Temporary diagnostics
+st.write("BASE_DIR:", BASE_DIR)
+st.write("Logo path:", BASE_DIR / "logo" / "logos.png")
+st.write("Logo exists:", (BASE_DIR / "logo" / "logos.png").exists())
+st.write("Logo dimensions:", logos.size)
+
 # Specify location of logos (on top of disclaimer, right side)
 left, logo = st.columns([10, 3])
 
