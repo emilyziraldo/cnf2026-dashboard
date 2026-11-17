@@ -6,6 +6,8 @@ import streamlit as st
 from pathlib import Path
 from PIL import Image
 from cnf_functions import *
+# new to address image rendering issue
+import base64
 
 
 
@@ -39,14 +41,31 @@ logos = Image.open(BASE_DIR / "logo" / "logos.png")
 #with logo:
 #    st.image(logos, width=350)
 
-## TEMPORARY IMAGE RENDERING TEST
-test_image = Image.new("RGB", (600, 150), color="red")
+#TEMPORARILY ADDING TO TRY TO FIX LOGO RENDERING ISSUE
+# Load logos for top of food search page
+logo_path = BASE_DIR / "logo" / "logos.png"
 
-st.image(
-    test_image,
-    caption="Image rendering test",
-    width=600
-)
+# Convert logo image to Base64
+with open(logo_path, "rb") as image_file:
+    logo_base64 = base64.b64encode(
+        image_file.read()
+    ).decode("utf-8")
+
+# Specify location of logos
+left, logo = st.columns([10, 3])
+
+with logo:
+    st.markdown(
+        f"""
+        <img
+            src="data:image/png;base64,{logo_base64}"
+            width="350"
+            style="display: block; margin-left: auto;"
+        >
+        """,
+        unsafe_allow_html=True
+    )
+
 
 # Add project disclaimer at the top of the page
 st.markdown(
